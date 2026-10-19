@@ -1,0 +1,65 @@
+---
+const faqs = [
+  {
+    q: "¿Agnes es completamente gratuito y de código abierto?",
+    a: "Sí. Agnes es un software libre y de uso público publicado bajo la licencia de código abierto MIT. No contiene anuncios, ni cobros ocultos, ni suscripciones. Puedes usarlo libremente, auditar su código o colaborar en su desarrollo en GitHub."
+  },
+  {
+    q: "¿Por qué se exige un 80% en el cuestionario para descargar el documento?",
+    a: "Es el pilar pedagógico fundamental de Agnes. Para evitar la dependencia pasiva de la IA y fomentar el aprendizaje activo, la aplicación formula 10 preguntas conceptuales sobre el protocolo generado. Requerir un mínimo de 8 respuestas correctas garantiza que el estudiante domina los temas antes de entregar el trabajo ante sus profesores."
+  },
+  {
+    q: "¿Cómo consigo mi clave de API de Google Gemini?",
+    a: "Solo debes ingresar a Google AI Studio (aistudio.google.com/app/apikey) con tu cuenta regular de Google y pulsar en 'Create API Key'. Es un servicio oficial, gratuito e instantáneo provisto por Google."
+  },
+  {
+    q: "¿Qué formatos de archivo genera Agnes?",
+    a: "Genera documentos oficiales en formato Word (.docx) perfectamente estructurados con tablas y membretes de la Universidad de Cartagena, y permite su conversión directa a PDF (.pdf) con total fidelidad gráfica y sin páginas residuales en blanco."
+  },
+  {
+    q: "¿Cómo ejecuto Agnes en Linux?",
+    a: "Descarga el archivo Agnes-1.0.0.AppImage desde las releases de GitHub, dale permisos de ejecución desde la terminal con `chmod +x Agnes*.AppImage` (o desde las propiedades de archivo en tu explorador) y ejecútalo con doble clic. Es completamente autónomo y no requiere instalación."
+  },
+  {
+    q: "¿Se envían mis datos o protocolos a algún servidor privado?",
+    a: "No. Agnes es una aplicación de escritorio local basada en Electron. Todo el procesamiento de documentos se ejecuta en tu máquina y las peticiones de IA viajan de manera directa y cifrada entre tu equipo y la API de Google Gemini."
+  }
+];
+---
+
+<section id="faq" class="py-20 relative bg-slate-950/60 border-t border-slate-800/60">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center space-y-4 mb-14">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-semibold">
+        <span>Resolviendo Dudas</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Preguntas Frecuentes
+      </h2>
+      <p class="text-slate-400 text-sm">
+        Todo lo que necesitas saber antes de empezar a usar Agnes.
+      </p>
+    </div>
+
+    <!-- Accordion List -->
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <details class="group bg-slate-900/70 border border-slate-800 rounded-2xl p-5 open:bg-slate-900 open:border-indigo-500/40 transition-all duration-200">
+          <summary class="flex items-center justify-between cursor-pointer list-none select-none font-semibold text-slate-200 group-hover:text-white text-base">
+            <span class="flex items-center gap-3">
+              <span class="text-xs font-mono text-indigo-400 font-bold">{index + 1 < 10 ? `0${index + 1}` : index + 1}</span>
+              {faq.q}
+            </span>
+            <span class="p-1 rounded-lg bg-slate-800 text-slate-400 group-hover:text-white group-open:rotate-180 transition-transform duration-200 shrink-0 ml-4">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </span>
+          </summary>
+          <p class="mt-4 text-xs sm:text-sm text-slate-300/90 leading-relaxed pl-8 border-l border-indigo-500/30">
+            {faq.a}
+          </p>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>

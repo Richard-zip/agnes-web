@@ -1,23 +1,54 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import '../styles/global.css';
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Agnes — Generador de Protocolos Académicos con IA",
+  description = "Agnes es una aplicación de escritorio open-source impulsada por Google Gemini que estructura y redacta protocolos oficiales para la Universidad de Cartagena, garantizando tu aprendizaje mediante evaluación interactiva."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="dark scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/agnes-icon.png" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/agnes-hero.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/agnes-hero.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#090d16] text-slate-100 min-h-screen selection:bg-indigo-500/30 selection:text-indigo-200 font-['Plus_Jakarta_Sans',sans-serif] relative antialiased">
+    <!-- Background subtle radial grid and glow -->
+    <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+      <div class="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-indigo-600/15 via-blue-600/10 to-transparent blur-[120px] rounded-full"></div>
+      <div class="absolute top-[40%] -left-[10%] w-[500px] h-[500px] bg-purple-600/10 blur-[140px] rounded-full"></div>
+      <div class="absolute top-[60%] -right-[10%] w-[600px] h-[600px] bg-blue-600/10 blur-[140px] rounded-full"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b0a_1px,transparent_1px),linear-gradient(to_bottom,#1e293b0a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+    </div>
+
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import DownloadSection from '../components/DownloadSection.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Descargar Agnes — Linux (AppImage) & Windows"
+  description="Descarga Agnes gratis y de código abierto para Linux y Windows desde el repositorio oficial de GitHub de Richard-zip."
+>
+  <Navbar />
+  <main class="pt-8">
+    <div class="max-w-4xl mx-auto px-4 text-center pt-8 pb-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-4">
+        <span>🚀 Release Oficial</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+        Descarga Agnes para tu sistema
+      </h1>
+      <p class="text-slate-300 text-base max-w-xl mx-auto mt-3">
+        Elige tu plataforma preferida. Todos los binarios se descargan directamente desde los releases verificados en GitHub.
+      </p>
+    </div>
+
+    <DownloadSection />
+    <FAQ />
+  </main>
+  <Footer />
+</Layout>
